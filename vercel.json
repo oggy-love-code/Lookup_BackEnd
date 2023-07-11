@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "./main.ts",
+            "use": "@vercel/node"
+        }
+    ],
+    "build": {
+        "env": {
+            "DB_URI": "lookup_app_mongodb",
+            "JWT_SECRET": "lookup_app_jwt_secret",
+            "JWT_EXPIRE": "lookup_app_jwt_expire",
+            "CLOUDINARY_NAME": "lookup_app_cloudinary_name",
+            "CLOUDINARY_API_KEY": "lookup_app_cloudinary_api_key",
+            "CLOUDINARY_API_SECRET": "lookup_app_cloudinary_api_secret"
+        }
+    },
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE"
+            ]
+        }
+    ]
+}
